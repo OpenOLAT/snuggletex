@@ -1,1 +1,15 @@
+/target
 */target
+.idea/*
+/bin
+*/bin
+.classpath
+*/.classpath
+.project
+*/.project
+
+/.settings
+*/.settings
+
+# Mac idiosyncrasies
+.DS_Store
