@@ -39,18 +39,9 @@ All Rights Reserved
       </snapshots>
     </repository>
     <repository>
-      <id>openolat-repo</id>
+      <id>nexus.openolat</id>
       <name>OpenOLAT Public Maven Repository Group</name>
-      <url>https://nexus.openolat.org/nexus/content/groups/public</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-      </snapshots>
+      <url>https://nexus.openolat.org/nexus/content/repositories/openolat</url>
     </repository>
   </repositories>
   <name>SnuggleTeX</name>
@@ -98,12 +89,12 @@ All Rights Reserved
   <distributionManagement>
     <!-- (This is not intended for general use!) -->
     <repository>
-      <id>www2.ph.ed.ac.uk</id>
-      <url>file:///Disk/apps-team/repositories/maven2</url>
+      <id>nexus.openolat</id>
+      <url>http://nexus.openolat.org/nexus/content/repositories/openolat</url>
     </repository>
     <snapshotRepository>
-      <id>www2.ph.ed.ac.uk</id>
-      <url>file:///Disk/apps-team/repositories/maven2</url>
+      <id>nexus.openolat</id>
+      <url>http://nexus.openolat.org/nexus/content/repositories/openolat-snapshots</url>
     </snapshotRepository>
     <site>
       <!--
