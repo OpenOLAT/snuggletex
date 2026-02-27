@@ -52,10 +52,20 @@ All Rights Reserved
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>thaiopensource</groupId>
+      <groupId>com.thaiopensource</groupId>
       <artifactId>jing</artifactId>
       <version>20091111</version>
       <scope>test</scope>
+      <exclusions>
+      	<exclusion>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>	
+      	</exclusion>
+      	<exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>	
+      	</exclusion>
+      </exclusions>
     </dependency>
     <!-- (Pull in test classes from core module, which contain some useful base classes) -->
     <dependency>
@@ -75,6 +85,7 @@ All Rights Reserved
             <include>**/*Test.java</include>
             <include>**/*Tests.java</include>
           </includes>
+          <skipTests>${skipTests}</skipTests>
         </configuration>
       </plugin>
       <!--

@@ -30,14 +30,27 @@ All Rights Reserved
   </properties>
   <repositories>
     <repository>
-      <id>www2.ph.ed.ac.uk</id>
-      <url>http://www2.ph.ed.ac.uk/maven2</url>
+      <id>central</id>
+      <name>Maven Repository Switchboard</name>
+      <layout>default</layout>
+      <url>https://repo1.maven.org/maven2</url>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
+    </repository>
+    <repository>
+      <id>openolat-repo</id>
+      <name>OpenOLAT Public Maven Repository Group</name>
+      <url>https://nexus.openolat.org/nexus/content/groups/public</url>
+      <layout>default</layout>
       <releases>
         <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
       </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
     </repository>
   </repositories>
   <name>SnuggleTeX</name>
@@ -125,6 +138,9 @@ All Rights Reserved
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+            <skipTests>${skipTests}</skipTests>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
@@ -132,7 +148,7 @@ All Rights Reserved
         </plugin>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
-          <version>2.2</version>
+          <version>3.4.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
@@ -159,31 +175,6 @@ All Rights Reserved
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
           <version>1.2.1</version>
-        </plugin>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <versionRange>[1.2,)</versionRange>
-                    <goals>
-                      <goal>exec</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -249,15 +240,8 @@ All Rights Reserved
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <aggregate>true</aggregate>
-        </configuration>
-      </plugin>
-      <plugin>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.12</version>
+        <version>2.22.1</version>
         <configuration>
           <aggregate>true</aggregate>
         </configuration>
