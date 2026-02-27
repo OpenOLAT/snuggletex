@@ -3,7 +3,7 @@
  */
 package uk.ac.ed.ph.snuggletex.webapp;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Some general servlet-related utility methods.

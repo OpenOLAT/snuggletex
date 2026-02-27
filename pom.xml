@@ -8,9 +8,9 @@ All Rights Reserved
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <name>SnuggleTeX</name>
-  <groupId>uk.ac.ed.ph.snuggletex</groupId>
+  <groupId>org.openolat.snuggletex</groupId>
   <artifactId>snuggletex</artifactId>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.4-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
     <module>snuggletex-core</module>
@@ -20,12 +20,11 @@ All Rights Reserved
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>4.8.1</junit.version>
-    <easymock.version>2.5.2</easymock.version>
+    <junit.version>4.13.2</junit.version>
+    <easymock.version>5.6.0</easymock.version>
     <jeuclid.version>3.1.9</jeuclid.version>
     <saxon9.version>9.1.0.8</saxon9.version><!-- Used in snuggletex-upconversion -->
-    <slf4j.version>1.7.32</slf4j.version><!-- Used in snuggletex-webapp only -->
-    <logback.version>1.2.9</logback.version><!-- Used in snuggletex-webapp only -->
+    <slf4j.version>2.0.17</slf4j.version><!-- Used in snuggletex-webapp only -->
     <maven.site.url>http://snuggletex.sourceforge.net/maven/</maven.site.url>
   </properties>
   <description>
@@ -70,23 +69,23 @@ All Rights Reserved
     <url>https://github.com/davemckain/snuggletex/issues</url>
   </issueManagement>
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+	<repository>
+      <id>nexus.openolat</id>
+      <url>https://nexus.openolat.org/#/releases</url>
     </repository>
+    <snapshotRepository>
+      <id>nexus.openolat</id>
+      <url>https://nexus.openolat.org/#/snapshots</url>
+    </snapshotRepository>
   </distributionManagement>
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version><!-- NB: This is the latest version supported by Maven on SL7 -->
+        <version>3.14.1</version><!-- NB: This is the latest version supported by Maven on SL7 -->
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>17</source>
+          <target>17</target>
         </configuration>
       </plugin>
       <plugin>
@@ -114,19 +113,6 @@ All Rights Reserved
             <descriptor>src/assemble/full.xml</descriptor>
           </descriptors>
         </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>3.0.1</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
